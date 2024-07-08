@@ -53,6 +53,19 @@ const libraryItems: LibraryItem[] = [
       name: "Referens",
     },
   },
+  {
+    id: "abc3212",
+    type: "Audiobook",
+    title: "En ljudbokstitel",
+    runTimeMinutes: 360,
+    isBorrowable: true,
+    category: {
+      id: "3",
+      name: "Komedi",
+    },
+    borrower: null,
+    borrowDate: null,
+  },
 ];
 
 export function getLibraryItems() {
