@@ -1,20 +1,3 @@
-import axios from "axios";
-import { LibraryItem, LibraryItemType } from "../types";
-
-interface LibraryItemFormData {
-  id: string;
-  title: string;
-  author?: string;
-  creator?: string;
-  nbrPages?: number;
-  runTimeMinutes?: number;
-  type: LibraryItemType;
-  isBorrowable: boolean;
-  categoryId: string;
-  borrower?: string | null;
-  borrowDate?: Date | null;
-}
-
 const API_BASEURL = "http://localhost:5544/api/libraryitems";
 
 export function getLibraryItems() {
