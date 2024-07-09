@@ -14,7 +14,7 @@ function TableBody({ libraryItems }: Props) {
           <td>
             <Link to={`/libraryitems/${item.id}`}>{item.title}</Link>
           </td>
-          <td>{"author" in item ? item.author : null}</td>
+          <td>{"author" in item ? item.author : item.creator}</td>
           <td>{"nbrPages" in item ? item.nbrPages : item.runTimeMinutes}</td>
           <td>{item.type}</td>
           <td>

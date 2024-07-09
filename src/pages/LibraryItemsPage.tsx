@@ -8,6 +8,8 @@ function LibraryItemsPage() {
     getLibraryItems()
   );
 
+  console.log(libraryitems);
+
   return (
     <div>
       <h1>Library</h1>

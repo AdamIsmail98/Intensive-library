@@ -1,7 +1,11 @@
-export interface LibraryItemBase {
+export interface LibraryItem {
   id: string;
   title: string;
-  type: string;
+  author?: string;
+  creator?: string;
+  nbrPages?: number;
+  runTimeMinutes?: number;
+  type: LibraryItemType;
   isBorrowable: boolean;
   category: Category;
   borrower?: string | null;
@@ -13,26 +17,4 @@ export interface Category {
   name: string;
 }
 
-export interface Book extends LibraryItemBase {
-  type: "Book";
-  author: string;
-  nbrPages: number;
-}
-
-export interface DVD extends LibraryItemBase {
-  type: "DVD";
-  runTimeMinutes: number;
-}
-
-export interface Audiobook extends LibraryItemBase {
-  type: "Audiobook";
-  runTimeMinutes: number;
-}
-
-export interface Encyclopedia extends LibraryItemBase {
-  type: "Encyclopedia";
-  author: string;
-  nbrPages: number;
-}
-
-export type LibraryItem = Book | DVD | Audiobook | Encyclopedia;
+export type LibraryItemType = "Book" | "DVD" | "Audiobook" | "Encyclopedia";
