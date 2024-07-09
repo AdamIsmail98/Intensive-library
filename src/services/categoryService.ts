@@ -1,21 +1,24 @@
-const API_BASEURL = "http://localhost:5544/api/libraryitems";
+import axios from "axios";
+import { Category } from "../types";
+
+const API_BASEURL = "http://localhost:5544/api/categories";
 
 export function getLibraryItems() {
-  return axios.get<LibraryItem[]>(API_BASEURL);
+  return axios.get<Category[]>(API_BASEURL);
 }
 
 export function getLibraryItem(id: string) {
-  return axios.get<LibraryItem>(`${API_BASEURL}/${id}`);
+  return axios.get<Category>(`${API_BASEURL}/${id}`);
 }
 
-export function saveFood(LibraryItem: LibraryItemFormData) {
-  if (LibraryItem.id) {
-    return axios.put(`${API_BASEURL}/${LibraryItem.id}`, LibraryItem);
+export function saveFood(category: Category) {
+  if (category.id) {
+    return axios.put(`${API_BASEURL}/${category.id}`, category.name);
   }
 
-  return axios.post(`${API_BASEURL}/${LibraryItem.id}`, LibraryItem);
+  return axios.post(`${API_BASEURL}/${category.id}`, category.name);
 }
 
 export function deleteFood(id: string) {
-  return axios.delete<LibraryItem>(`${API_BASEURL}/${id}`);
+  return axios.delete<Category>(`${API_BASEURL}/${id}`);
 }
