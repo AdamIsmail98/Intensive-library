@@ -3,7 +3,7 @@ function TableHeader() {
     <thead>
       <tr>
         <th>Title</th>
-        <th>Author</th>
+        <th>Author/Creator</th>
         <th>Pages/Runtime</th>
         <th>Type</th>
         <th>Category</th>

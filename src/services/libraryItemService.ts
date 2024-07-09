@@ -3,9 +3,9 @@ import { LibraryItem } from "../types";
 const libraryItems: LibraryItem[] = [
   {
     id: "abc123",
-    title: "En boktitel",
-    author: "En författare",
-    nbrPages: 300,
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    nbrPages: 310,
     type: "Book",
     category: {
       id: "1",
@@ -17,9 +17,9 @@ const libraryItems: LibraryItem[] = [
   },
   {
     id: "abc1234",
-    title: "En DVD-titel",
-    creator: "Alex guetta",
-    runTimeMinutes: 120,
+    title: "Inception",
+    creator: "Christopher Nolan",
+    runTimeMinutes: 148,
     type: "DVD",
     category: {
       id: "2",
@@ -31,9 +31,9 @@ const libraryItems: LibraryItem[] = [
   },
   {
     id: "abc321",
-    title: "En ljudbokstitel",
-    creator: "Karl Gustav",
-    runTimeMinutes: 360,
+    title: "The Alchemist",
+    creator: "Paulo Coelho",
+    runTimeMinutes: 195,
     type: "Audiobook",
     category: {
       id: "3",
@@ -45,9 +45,9 @@ const libraryItems: LibraryItem[] = [
   },
   {
     id: "abc4321",
-    title: "En uppslagsbokstitel",
-    author: "En författare",
-    nbrPages: 1500,
+    title: "World Atlas",
+    author: "National Geographic",
+    nbrPages: 400,
     type: "Encyclopedia",
     category: {
       id: "4",
@@ -57,13 +57,13 @@ const libraryItems: LibraryItem[] = [
   },
   {
     id: "abc3212",
-    title: "En ljudbokstitel",
-    creator: "Creator",
-    runTimeMinutes: 360,
-    type: "Audiobook",
+    title: "Sapiens",
+    author: "Yuval Noah Harari",
+    nbrPages: 443,
+    type: "Book",
     category: {
-      id: "3",
-      name: "Komedi",
+      id: "5",
+      name: "History",
     },
     isBorrowable: true,
     borrower: null,

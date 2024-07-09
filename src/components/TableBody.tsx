@@ -15,7 +15,11 @@ function TableBody({ libraryItems }: Props) {
             <Link to={`/libraryitems/${item.id}`}>{item.title}</Link>
           </td>
           <td>{"author" in item ? item.author : item.creator}</td>
-          <td>{"nbrPages" in item ? item.nbrPages : item.runTimeMinutes}</td>
+          <td>
+            {"nbrPages" in item
+              ? `${item.nbrPages} Pages`
+              : `${item.runTimeMinutes} Minutes`}
+          </td>
           <td>{item.type}</td>
           <td>
             <Link to={`/categoriesform/${item.category.id}`}>
@@ -23,9 +27,9 @@ function TableBody({ libraryItems }: Props) {
             </Link>
           </td>
           <td>{item.isBorrowable ? "Yes" : "No"}</td>
-          <td>{item.borrower || "N/A"}</td>
+          <td>{item.borrower || null}</td>
           <td>
-            {item.borrowDate ? item.borrowDate.toLocaleDateString() : "N/A"}
+            {item.borrowDate ? item.borrowDate.toLocaleDateString() : null}
           </td>
           {/* <td>
                   {item.isBorrowable && !item.borrower && (
