@@ -1,26 +1,13 @@
-import { useEffect, useState } from "react";
-import { getLibraryItems } from "../services/libraryItemService";
-import { LibraryItem } from "../types";
 import Table from "../components/Table";
+import { useLibraryItems } from "../hooks/useLibraryItems";
 
 function LibraryItemsPage() {
-  const [libraryitems, setLibraryItems] = useState<LibraryItem[]>([]);
-
-  useEffect(() => {
-    async function fetch() {
-      const { data: libraryItems } = await getLibraryItems();
-      setLibraryItems(libraryItems);
-    }
-
-    fetch();
-  }, []);
-
-  console.log(libraryitems);
+  const { libraryItems } = useLibraryItems();
 
   return (
     <div>
       <h1>Library</h1>
-      <Table libraryItems={libraryitems} />
+      <Table libraryItems={libraryItems} />
     </div>
   );
 }
