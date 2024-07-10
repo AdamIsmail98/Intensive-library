@@ -25,7 +25,7 @@ export function getLibraryItem(id: string) {
   return axios.get<LibraryItem>(`${API_BASEURL}/${id}`);
 }
 
-export function saveFood(LibraryItem: LibraryItemFormData) {
+export function saveLibraryItem(LibraryItem: LibraryItemFormData) {
   if (LibraryItem.id) {
     return axios.put(`${API_BASEURL}/${LibraryItem.id}`, LibraryItem);
   }
@@ -33,6 +33,6 @@ export function saveFood(LibraryItem: LibraryItemFormData) {
   return axios.post(`${API_BASEURL}/${LibraryItem.id}`, LibraryItem);
 }
 
-export function deleteFood(id: string) {
+export function deleteLibraryItem(id: string) {
   return axios.delete<LibraryItem>(`${API_BASEURL}/${id}`);
 }

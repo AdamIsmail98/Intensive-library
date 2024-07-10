@@ -3,15 +3,15 @@ import { Category } from "../types";
 
 const API_BASEURL = "http://localhost:5544/api/categories";
 
-export function getLibraryItems() {
+export function getCategories() {
   return axios.get<Category[]>(API_BASEURL);
 }
 
-export function getLibraryItem(id: string) {
+export function getCategory(id: string) {
   return axios.get<Category>(`${API_BASEURL}/${id}`);
 }
 
-export function saveFood(category: Category) {
+export function saveCategory(category: Category) {
   if (category.id) {
     return axios.put(`${API_BASEURL}/${category.id}`, category.name);
   }
@@ -19,6 +19,6 @@ export function saveFood(category: Category) {
   return axios.post(`${API_BASEURL}/${category.id}`, category.name);
 }
 
-export function deleteFood(id: string) {
+export function deleteCategory(id: string) {
   return axios.delete<Category>(`${API_BASEURL}/${id}`);
 }
