@@ -2,7 +2,7 @@ import axios from "axios";
 import { LibraryItem, LibraryItemType } from "../types";
 
 interface LibraryItemFormData {
-  id: string;
+  id?: string;
   title: string;
   author?: string;
   creator?: string;
@@ -30,7 +30,7 @@ export function saveLibraryItem(LibraryItem: LibraryItemFormData) {
     return axios.put(`${API_BASEURL}/${LibraryItem.id}`, LibraryItem);
   }
 
-  return axios.post(`${API_BASEURL}/${LibraryItem.id}`, LibraryItem);
+  return axios.post(`${API_BASEURL}`, LibraryItem);
 }
 
 export function deleteLibraryItem(id: string) {
