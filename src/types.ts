@@ -18,3 +18,7 @@ export interface Category {
 }
 
 export type LibraryItemType = "Book" | "DVD" | "Audiobook" | "Encyclopedia";
+
+export type SortOrder = "asc" | "desc";
+
+export type SortColumn = "category.name" | "type";
