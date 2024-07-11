@@ -55,10 +55,11 @@ function LibraryItemFormPage() {
   }, []);
 
   useEffect(() => {
-    if (watch("type") === "Encyclopedia") {
+    if (!id || id === "new") {
       setValue("borrowDate", null);
+      setValue("borrower", null);
     }
-  }, [watch("type")]);
+  }, []);
 
   function mapToFormData(libraryItem: LibraryItem): ExtendedFormData {
     const mappedLibraryItem: ExtendedFormData = {

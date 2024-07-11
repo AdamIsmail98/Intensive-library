@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getCategory, saveCategory } from "../services/categoryService";
+import { useCategories } from "../hooks/useCategories";
 
 const schema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -23,6 +24,7 @@ function CategoryFormPage() {
   });
 
   const { id } = useParams();
+  const { categories } = useCategories();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,6 +41,11 @@ function CategoryFormPage() {
   }, []);
 
   async function onSubmit(data: FormData) {
+    if (categories.some((category) => category.name === data.name)) {
+      alert("Category already exist");
+      return;
+    }
+
     saveCategory(id, data.name);
     navigate("/libraryitems");
   }
