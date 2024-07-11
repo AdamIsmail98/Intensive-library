@@ -4,6 +4,9 @@ import NotFoundPage from "./pages/NotFoundPage";
 import LibraryItemsPage from "./pages/LibraryItemsPage";
 import LibraryItemFormPage from "./pages/LibraryItemFormPage";
 import CategoryFormPage from "./pages/CategoryFormPage";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
+import Logout from "./components/LogOut";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,9 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: "/logout", element: <Logout /> },
+  { path: "/login", element: <LoginPage /> },
+  { path: "/register", element: <RegisterPage /> },
 ]);
 
 export default router;
