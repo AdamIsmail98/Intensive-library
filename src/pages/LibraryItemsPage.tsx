@@ -43,7 +43,6 @@ function LibraryItemsPage() {
 
   return (
     <div className="row container pt-3">
-      <h1>Library</h1>
       <div className="col-2">
         <Link to="/categories/new" className="btn btn-primary mb-2">
           New Category
