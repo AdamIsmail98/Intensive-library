@@ -11,9 +11,13 @@ function LibraryItemsPage() {
   const { categories, SetCategories } = useCategories();
 
   async function handleCategoryDelete(id: string) {
-    const newCategories = categories.filter((category) => category.id !== id);
-    SetCategories(newCategories);
-    await deleteCategory(id);
+    try {
+      await deleteCategory(id);
+      const newCategories = categories.filter((category) => category.id !== id);
+      SetCategories(newCategories);
+    } catch (error: any) {
+      alert(error.response.data);
+    }
   }
 
   async function handleLibraryItemDelete(id: string) {

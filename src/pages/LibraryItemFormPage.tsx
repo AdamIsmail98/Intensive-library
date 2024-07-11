@@ -17,6 +17,8 @@ type ExtendedFormData = FormData & {
   creator?: string;
   nbrPages?: number;
   runTimeMinutes?: number;
+  borrower?: string | null;
+  borrowDate?: Date | null;
 };
 
 function LibraryItemFormPage() {
@@ -28,6 +30,7 @@ function LibraryItemFormPage() {
     reset,
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isValid },
   } = useForm<ExtendedFormData>({
     resolver: zodResolver(getValidationSchema(type)),
@@ -50,6 +53,12 @@ function LibraryItemFormPage() {
     }
     fetch();
   }, []);
+
+  useEffect(() => {
+    if (watch("type") === "Encyclopedia") {
+      setValue("borrowDate", null);
+    }
+  }, [watch("type")]);
 
   function mapToFormData(libraryItem: LibraryItem): ExtendedFormData {
     const mappedLibraryItem: ExtendedFormData = {
@@ -81,6 +90,11 @@ function LibraryItemFormPage() {
   }
 
   async function onSubmit(data: ExtendedFormData) {
+    if (data.type === "Encyclopedia" && data.isBorrowable) {
+      alert("Encyclopedia cannot be borrowed.");
+      return;
+    }
+
     await saveLibraryItem(data);
     navigate("/libraryitems");
   }
@@ -203,6 +217,29 @@ function LibraryItemFormPage() {
             />
             <label className="form-check-label">Is Borrowable</label>
           </div>
+
+          {watch("isBorrowable") && (
+            <>
+              <div className="mb-3 w-50">
+                <label className="form-label">Borrower</label>
+                <input {...register("borrower")} className="form-control" />
+                {errors.borrower && (
+                  <p className="text-danger">{errors.borrower.message}</p>
+                )}
+              </div>
+              <div className="mb-3 w-50">
+                <label className="form-label">Borrow Date</label>
+                <input
+                  {...register("borrowDate", { valueAsDate: true })}
+                  type="date"
+                  className="form-control"
+                />
+                {errors.borrowDate && (
+                  <p className="text-danger">{errors.borrowDate.message}</p>
+                )}
+              </div>
+            </>
+          )}
 
           <div>
             <button className="btn btn-primary" disabled={!isValid}>

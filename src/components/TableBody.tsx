@@ -22,15 +22,13 @@ function TableBody({ libraryItems, onDelete }: Props) {
               : `${item.runTimeMinutes} Minutes`}
           </td>
           <td>{item.type}</td>
-          <td>
-            <Link to={`/categoriesform/${item.category.id}`}>
-              {item.category.name}
-            </Link>
-          </td>
+          <td>{item.category.name}</td>
           <td>{item.isBorrowable ? "Yes" : "No"}</td>
           <td>{item.borrower || null}</td>
           <td>
-            {item.borrowDate ? item.borrowDate.toLocaleDateString() : null}
+            {item.borrowDate
+              ? new Date(item.borrowDate).toLocaleDateString()
+              : null}
           </td>
           <td>
             <button
