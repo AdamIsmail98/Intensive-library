@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 
 interface Props {
   libraryItems: LibraryItem[];
+  onDelete(id: string): void;
 }
 
-function TableBody({ libraryItems }: Props) {
+function TableBody({ libraryItems, onDelete }: Props) {
   return (
     <tbody>
       {libraryItems.map((item) => (
@@ -31,11 +32,14 @@ function TableBody({ libraryItems }: Props) {
           <td>
             {item.borrowDate ? item.borrowDate.toLocaleDateString() : null}
           </td>
-          {/* <td>
-                  {item.isBorrowable && !item.borrower && (
-                    <button onClick={() => handleCheckout(item)}>Checkout</button>
-                  )}
-                </td> */}
+          <td>
+            <button
+              className="btn btn-danger"
+              onClick={() => onDelete(item.id)}
+            >
+              Delete
+            </button>
+          </td>
         </tr>
       ))}
     </tbody>

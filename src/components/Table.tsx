@@ -4,13 +4,14 @@ import TableHeader from "./TableHeader";
 
 interface Props {
   libraryItems: LibraryItem[];
+  onDelete(id: string): void;
 }
 
-function Table({ libraryItems }: Props) {
+function Table({ libraryItems, onDelete }: Props) {
   return (
     <table className="table">
       <TableHeader />
-      <TableBody libraryItems={libraryItems} />
+      <TableBody libraryItems={libraryItems} onDelete={onDelete} />
     </table>
   );
 }

@@ -3,6 +3,7 @@ import App from "./App";
 import NotFoundPage from "./pages/NotFoundPage";
 import LibraryItemsPage from "./pages/LibraryItemsPage";
 import LibraryItemFormPage from "./pages/LibraryItemFormPage";
+import CategoryFormPage from "./pages/CategoryFormPage";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "libraryitems/:id",
         element: <LibraryItemFormPage />,
+      },
+      {
+        path: "categories/:id",
+        element: <CategoryFormPage />,
       },
     ],
   },

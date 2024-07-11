@@ -127,15 +127,6 @@ function LibraryItemFormPage() {
               <p className="text-danger">{errors.categoryId.message}</p>
             )}
           </div>
-          <div className="mb-3 form-check">
-            <input
-              type="checkbox"
-              {...register("isBorrowable")}
-              defaultChecked={watch("isBorrowable")}
-              className="form-check-input"
-            />
-            <label className="form-check-label">Is Borrowable</label>
-          </div>
 
           {type === "Book" && (
             <>
@@ -202,6 +193,16 @@ function LibraryItemFormPage() {
               </div>
             </>
           )}
+
+          <div className="mb-3 form-check">
+            <input
+              type="checkbox"
+              {...register("isBorrowable")}
+              defaultChecked={watch("isBorrowable")}
+              className="form-check-input"
+            />
+            <label className="form-check-label">Is Borrowable</label>
+          </div>
 
           <div>
             <button className="btn btn-primary" disabled={!isValid}>

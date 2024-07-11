@@ -11,12 +11,12 @@ export function getCategory(id: string) {
   return axios.get<Category>(`${API_BASEURL}/${id}`);
 }
 
-export function saveCategory(category: Category) {
-  if (category.id) {
-    return axios.put(`${API_BASEURL}/${category.id}`, category.name);
+export function saveCategory(id: string | undefined, name: string) {
+  if (id && id !== "new") {
+    return axios.put(`${API_BASEURL}/${id}`, { name });
   }
 
-  return axios.post(`${API_BASEURL}/${category.id}`, category.name);
+  return axios.post(`${API_BASEURL}`, { name });
 }
 
 export function deleteCategory(id: string) {
