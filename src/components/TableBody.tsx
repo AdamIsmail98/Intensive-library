@@ -8,12 +8,21 @@ interface Props {
 }
 
 function TableBody({ libraryItems, onDelete }: Props) {
+  function titleAbbreviation(title: string) {
+    return title
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase())
+      .join("");
+  }
+
   return (
     <tbody>
       {libraryItems.map((item) => (
         <tr key={item.id}>
           <td>
-            <Link to={`/libraryitems/${item.id}`}>{item.title}</Link>
+            <Link to={`/libraryitems/${item.id}`}>
+              {item.title} ({titleAbbreviation(item.title)})
+            </Link>
           </td>
           <td>{item.author || item.creator}</td>
           <td>
